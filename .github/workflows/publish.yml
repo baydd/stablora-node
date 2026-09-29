@@ -1,0 +1,28 @@
+# Publishes @stablora/node to npm with a provenance statement.
+# npm authentication: Trusted Publishing (OIDC) for this repository and workflow —
+# configure it on npmjs.com → @stablora/node → Settings → Trusted Publisher.
+name: Publish
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*.*.*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      - run: npm install -g npm@latest
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm publish --provenance --access public

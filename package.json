@@ -1,0 +1,62 @@
+{
+  "name": "@stablora/node",
+  "version": "0.2.0",
+  "description": "Official Node.js SDK for the Stablora crypto payments API: checkouts, payments, wallets, payouts, webhook verification.",
+  "license": "MIT",
+  "author": {
+    "name": "Stablora",
+    "email": "dev@stablora.xyz"
+  },
+  "homepage": "https://stablora.xyz/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baydd/stablora-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baydd/stablora-node/issues"
+  },
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "src/",
+    "index.d.ts",
+    "examples/",
+    "API-REFERENCE.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "typecheck": "tsc --project tsconfig.json",
+    "build": "node --check src/index.js && node --check src/webhooks.js && node --check src/errors.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "stablora",
+    "payments",
+    "crypto",
+    "usdt",
+    "bitcoin",
+    "checkout",
+    "webhooks",
+    "sdk"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

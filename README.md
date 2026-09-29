@@ -275,5 +275,4 @@ of numeric money or missing payout/refund keys at compile time.
 
 On restricted Node 24 environments that forbid spawning test workers, run
 `node --test --test-isolation=none`. The ordinary `node --test` command works with
-Node 20+ where subprocesses are permitted. See [docs/HANDOFF.md](docs/HANDOFF.md)
-for verification results and remaining integration checks for this checkout.
+Node 20+ where subprocesses are permitted.
